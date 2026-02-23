@@ -1,6 +1,10 @@
-/* Grid layout for body */
+/* =========================
+   BASE GRID LAYOUT (Mobile First)
+========================= */
+
 body {
     display: grid;
+    grid-template-columns: 1fr;
     grid-template-areas:
         "header"
         "nav"
@@ -10,7 +14,10 @@ body {
     margin: 0;
 }
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
+
 header {
     grid-area: header;
     background: #333;
@@ -19,7 +26,14 @@ header {
     padding: 1rem;
 }
 
-/* Navigation */
+header h1 {
+    margin: 0;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
 nav {
     grid-area: nav;
     background: #555;
@@ -28,6 +42,7 @@ nav {
 nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -38,9 +53,11 @@ nav li {
 }
 
 nav a {
+    display: block;
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 10px 15px;
+    transition: background 0.3s ease;
 }
 
 nav a:hover {
@@ -48,29 +65,40 @@ nav a:hover {
     border-radius: 5px;
 }
 
-/* Main */
+/* =========================
+   MAIN CONTENT
+========================= */
+
 main {
     grid-area: main;
     padding: 20px;
 }
 
-/* Flex layout for images */
+/* =========================
+   FLEX IMAGE SECTION
+========================= */
+
 #image-flex {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 figure {
     flex: 1 1 250px;
+    margin: 0;
 }
 
 img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
+
 footer {
     grid-area: footer;
     background: #333;
@@ -79,33 +107,63 @@ footer {
     padding: 1rem;
 }
 
-/* Tablet breakpoint */
+/* =========================
+   TABLET BREAKPOINT
+========================= */
+
 @media (min-width: 768px) {
+
     body {
+        grid-template-columns: 1fr;
         grid-template-areas:
-            "header header"
-            "nav nav"
-            "main main"
-            "footer footer";
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav li {
+        margin: 0 25px;
     }
 }
 
-/* Large screen breakpoint */
+/* =========================
+   LARGE SCREEN BREAKPOINT
+========================= */
+
 @media (min-width: 1024px) {
+
     body {
+        grid-template-columns: 250px 1fr;
         grid-template-areas:
             "header header"
-            "nav nav"
-            "main main"
+            "nav main"
             "footer footer";
     }
-}
 
-/* Small screen nav stacking */
-@media (max-width: 600px) {
     nav ul {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+}
+
+/* =========================
+   SMALL SCREEN NAV STACK
+========================= */
+
+@media (max-width: 600px) {
+
+    nav ul {
+        flex-direction: column;
     }
 
     nav li {
