@@ -1,3 +1,4 @@
+/* Hide navigation and images */
 nav {
     display: none;
 }
@@ -6,10 +7,21 @@ img {
     display: none;
 }
 
+/* Remove grid for clean vertical print layout */
 body {
+    display: block;
     font-family: serif;
 }
 
+/* Ensure sections print vertically */
 section {
     display: block;
+    margin-bottom: 20px;
+}
+
+/* Optional: remove background colors for printing */
+header,
+footer {
+    background: none;
+    color: black;
 }
