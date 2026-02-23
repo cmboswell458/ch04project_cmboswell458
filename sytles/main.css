@@ -5,6 +5,7 @@
 body {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
     grid-template-areas:
         "header"
         "nav"
@@ -14,10 +15,7 @@ body {
     margin: 0;
 }
 
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 header {
     grid-area: header;
     background: #333;
@@ -26,14 +24,7 @@ header {
     padding: 1rem;
 }
 
-header h1 {
-    margin: 0;
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-
+/* NAV */
 nav {
     grid-area: nav;
     background: #555;
@@ -42,7 +33,6 @@ nav {
 nav ul {
     display: flex;
     justify-content: center;
-    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -53,11 +43,10 @@ nav li {
 }
 
 nav a {
-    display: block;
     color: white;
     text-decoration: none;
     padding: 10px 15px;
-    transition: background 0.3s ease;
+    display: block;
 }
 
 nav a:hover {
@@ -65,19 +54,13 @@ nav a:hover {
     border-radius: 5px;
 }
 
-/* =========================
-   MAIN CONTENT
-========================= */
-
+/* MAIN */
 main {
     grid-area: main;
     padding: 20px;
 }
 
-/* =========================
-   FLEX IMAGE SECTION
-========================= */
-
+/* FLEX IMAGE SECTION */
 #image-flex {
     display: flex;
     flex-wrap: wrap;
@@ -92,13 +75,9 @@ figure {
 img {
     width: 100%;
     height: auto;
-    display: block;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
+/* FOOTER */
 footer {
     grid-area: footer;
     background: #333;
@@ -112,18 +91,13 @@ footer {
 ========================= */
 
 @media (min-width: 768px) {
-
     header h1 {
         font-size: 2rem;
-    }
-
-    nav li {
-        margin: 0 25px;
     }
 }
 
 /* =========================
-   LARGE SCREEN BREAKPOINT
+   DESKTOP BREAKPOINT
 ========================= */
 
 @media (min-width: 1024px) {
@@ -153,9 +127,9 @@ footer {
 ========================= */
 
 @media (max-width: 600px) {
-
     nav ul {
         flex-direction: column;
+        align-items: center;
     }
 
     nav li {
@@ -164,9 +138,5 @@ footer {
 
     header h1 {
         font-size: 1.5rem;
-    }
-
-    footer {
-        font-size: 0.9rem;
     }
 }
