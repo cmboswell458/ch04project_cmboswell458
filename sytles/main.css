@@ -1,128 +1,122 @@
-/* ===== Base Reset ===== */
-* {
-    box-sizing: border-box;
+/* Grid layout for body */
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Header */
+header {
+    grid-area: header;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Navigation */
+nav {
+    grid-area: nav;
+    background: #555;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* ===== Grid Layout on Body ===== */
-body {
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-}
-
-/* ===== Header ===== */
-header {
-    background: #222;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-}
-
-h1 {
-    font-size: 1.8rem;
-}
-
-/* ===== Navigation ===== */
-nav ul {
-    list-style: none;
-    display: flex;            /* horizontal default */
-    justify-content: center;
-    gap: 1rem;
-    background: #444;
-    padding: 0.75rem;
+nav li {
+    margin: 0 15px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    padding: 0.5rem 0.75rem;
+    padding: 10px;
 }
 
 nav a:hover {
-    background: #666;
-    border-radius: 4px;
+    background: #222;
+    border-radius: 5px;
 }
 
-/* ===== Main ===== */
+/* Main */
 main {
-    padding: 1rem;
+    grid-area: main;
+    padding: 20px;
 }
 
-/* ===== Image Flex Section ===== */
+/* Flex layout for images */
 #image-flex {
     display: flex;
-    gap: 1rem;
+    gap: 20px;
     flex-wrap: wrap;
-    margin-top: 1rem;
 }
 
 figure {
-    flex: 1 1 200px;
-    text-align: center;
+    flex: 1 1 250px;
 }
 
-/* ===== Responsive Images ===== */
 img {
     width: 100%;
     height: auto;
 }
 
-/* ===== Footer ===== */
+/* Footer */
 footer {
+    grid-area: footer;
+    background: #333;
+    color: white;
     text-align: center;
     padding: 1rem;
-    background: #222;
-    color: white;
 }
 
-/* ========================= */
-/* 📱 Mobile adjustments */
-/* ========================= */
-@media (max-width: 600px) {
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+    body {
+        grid-template-areas:
+            "header header"
+            "nav nav"
+            "main main"
+            "footer footer";
+    }
+}
 
-    h1 {
-        font-size: 1.4rem;
+/* Large screen breakpoint */
+@media (min-width: 1024px) {
+    body {
+        grid-template-areas:
+            "header header"
+            "nav nav"
+            "main main"
+            "footer footer";
+    }
+}
+
+/* Small screen nav stacking */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
     }
 
-    header {
-        padding: 0.75rem;
+    nav li {
+        margin: 10px 0;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
     }
 
     footer {
         font-size: 0.9rem;
-    }
-
-    /* Stack nav vertically */
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-}
-
-/* ========================= */
-/* 📱 Tablet breakpoint */
-/* ========================= */
-@media (min-width: 601px) and (max-width: 900px) {
-
-    #image-flex {
-        justify-content: center;
-    }
-}
-
-/* ========================= */
-/* 💻 Large screens */
-/* ========================= */
-@media (min-width: 901px) {
-
-    body {
-        grid-template-columns: 1fr;
-    }
-
-    #image-flex {
-        justify-content: space-between;
     }
 }
