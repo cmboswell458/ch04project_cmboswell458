@@ -1,0 +1,28 @@
+/* Hide navigation and images when printing */
+nav {
+    display: none;
+}
+
+img {
+    display: none;
+}
+
+/* Ensure sections print vertically */
+#image-flex {
+    display: block;
+}
+
+section {
+    margin-bottom: 1rem;
+}
+
+/* Simplify colors for print */
+body {
+    color: black;
+    background: white;
+}
+
+header, footer {
+    background: none;
+    color: black;
+}
